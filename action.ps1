@@ -37,6 +37,8 @@ try
 
     $eventPath = $env:GITHUB_EVENT_PATH
 
+    Open-ActionOutputGroup "inputs"
+
     if ($null -eq $eventPath -or ![System.IO.File]::Exists($eventPath))
     {
         Write-ActionWarning "GitHub event file not found."
@@ -59,6 +61,8 @@ try
             }
         }
     }
+
+    Close-ActionOutputGroup
 }
 catch
 {
