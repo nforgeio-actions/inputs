@@ -36,7 +36,7 @@ $inputs = Get-ActionInput "inputs" $true
 
 try
 {
-    Write-Output "GITHUB_EVENT_PATH: $env:GITHUB_EVENT_PATH""
+    Write-Output "GITHUB_EVENT_PATH: $env:GITHUB_EVENT_PATH"
 
     Open-ActionOutputGroup "inputs"
     Write-ActionOutput $inputs
