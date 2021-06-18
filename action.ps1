@@ -33,7 +33,7 @@ Pop-Location | Out-Null
 try
 {
     # The GITHUB_EVENT_PATH environment variable should reference a JSON FILE
-    # with the full webhook payload including the "inputs".
+    # with the full webhook payload including the [inputs] property.
 
 Log-DebugLine "*** 0:"
     $eventPath = $env:GITHUB_EVENT_PATH
