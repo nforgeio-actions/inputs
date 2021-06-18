@@ -49,6 +49,7 @@ Log-DebugLine "*** 3"
     {
 Log-DebugLine "*** 4:"
         $event  = Get-Content $eventPath | ConvertFrom-Json
+Log-DebugLine "*** 4A: $event"
         $inputs = $event["inputs"]
 Log-DebugLine "*** 5: ${$inputs.Count}"
         if ($inputs.Count -eq 0)
