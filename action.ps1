@@ -36,11 +36,25 @@ $inputs = Get-ActionInput "inputs" $true
 
 try
 {
-    Write-Output "GITHUB_EVENT_PATH: $env:GITHUB_EVENT_PATH"
+    # The GITHUB_EVENT_PATH environment variable should reference a JSON FILE
+    # with the full webhook payload including the "inputs".
 
-    Open-ActionOutputGroup "inputs"
-    Write-ActionOutput $inputs
-    Close-ActionOutputGroup
+    $eventPath = $env:GITHUB_EVENT_PATH
+
+    if ($null -eq $eventPath -or ![System.IO.File]::Exists($eventPath))
+    {
+        Write-ActionWarning "GitHub event file not found."
+    }
+    else
+    {
+        $inputs = Get-Content $eventPath | Convert-FromJson
+
+        ForEach ($key in $inputs.Keys)
+        {
+            $value = $inputs[$key]
+            Write-ActionOutput "$key: $value"
+        }
+    }
 }
 catch
 {

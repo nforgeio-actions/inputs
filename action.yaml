@@ -12,10 +12,6 @@
 
 name: inputs
 description: "Logs workflow inputs"
-inputs:
-  inputs:
-    description: "Workflow inputs (typically formatted as YAML)"
-    required: true
 runs:
   using: node12
   main: action.js
