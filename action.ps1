@@ -48,9 +48,9 @@ Log-DebugLine "*** 3"
     else
     {
 Log-DebugLine "*** 4:"
-        $event  = Get-Content $eventPath | ConvertFrom-Json
-Log-DebugLine "*** 4A: $event"
-        $inputs = $event["inputs"]
+        $eventInfo  = Get-Content $eventPath | ConvertFrom-Json -AsHashtable
+Log-DebugLine "*** 4A: $eventInfo"
+        $inputs = $eventInfo["inputs"]
 Log-DebugLine "*** 5A: $inputs"
 Log-DebugLine "*** 5B: ${$inputs.Count}"
         if ($inputs.Count -eq 0)
