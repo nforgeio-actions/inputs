@@ -30,10 +30,6 @@ Push-Location $ncPowershell | Out-Null
 . ./includes.ps1
 Pop-Location | Out-Null
 
-# Fetch the inputs
-
-$inputs = Get-ActionInput "inputs" $true
-
 try
 {
     # The GITHUB_EVENT_PATH environment variable should reference a JSON FILE
