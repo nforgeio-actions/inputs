@@ -49,10 +49,17 @@ try
     {
         $inputs = Get-Content $eventPath | Convert-FromJson
 
-        ForEach ($key in $inputs.Keys)
+        if ($inputs.Count -eq 0)
         {
-            $value = $inputs[$key]
-            Write-ActionOutput "$key: $value"
+            Write-ActionOutput "[no workflow inputs]"
+        }
+        else
+        {
+            ForEach ($key in $inputs.Keys)
+            {
+                $value = $inputs[$key]
+                Write-ActionOutput "${key}: $value"
+            }
         }
     }
 }

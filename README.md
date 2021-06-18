@@ -2,8 +2,8 @@
 
 Logs workflow inputs.
 
-It would be nice if GitHub workflows logged their event inputs for debugging purposes but unfortunately
-this is not supported at this time.
+It would be nice if GitHub workflows logged their event inputs for archival and debugging purposes but 
+unfortunately this is not implemented by GitHub at this time.
 
 The **input** action is intended as an alternative.  This simply writes the workflow event inputs
 to the action output.
