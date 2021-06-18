@@ -35,41 +35,29 @@ try
     # The GITHUB_EVENT_PATH environment variable should reference a JSON FILE
     # with the full webhook payload including the [inputs] property.
 
-Log-DebugLine "*** 0:"
     $eventPath = $env:GITHUB_EVENT_PATH
-Log-DebugLine "*** 1: $eventPath"
 
     if ($null -eq $eventPath -or ![System.IO.File]::Exists($eventPath))
     {
-Log-DebugLine "*** 2:"
         Write-ActionWarning "GitHub event file not found."
-Log-DebugLine "*** 3"
     }
     else
     {
-Log-DebugLine "*** 4:"
-        $eventInfo  = Get-Content $eventPath | ConvertFrom-Json -AsHashtable
-Log-DebugLine "*** 4A: $eventInfo"
-        $inputs = $eventInfo["inputs"]
-Log-DebugLine "*** 5A: $inputs"
-Log-DebugLine "*** 5B: ${$inputs.Count}"
+        $eventInfo = Get-Content $eventPath | ConvertFrom-Json -AsHashtable
+        $inputs    = $eventInfo["inputs"]
+
         if ($inputs.Count -eq 0)
         {
-Log-DebugLine "*** 6:"
             Write-ActionOutput "[no workflow inputs]"
-Log-DebugLine "*** 7:"
         }
         else
         {
-Log-DebugLine "*** 8:"
             ForEach ($key in $inputs.Keys)
             {
                 $value = $inputs[$key]
-Log-DebugLine "*** 9: ${key}: $value"
                 Write-ActionOutput "${key}: $value"
             }
         }
-Log-DebugLine "*** 10:"
     }
 }
 catch
