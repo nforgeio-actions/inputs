@@ -59,3 +59,6 @@ Notice how we use the YAML "|" operator to pass a multi-line YAML formatted stri
 **NOTE:** In the future we may be able to parse the webhook event payload file referenced by the
 **GITHUB_EVENT_PATH** environment variable to read and format the inputs automatically but this
 implementation should suffice for now.
+
+If we end up supporting **GITHUB_EVENT_PATH**, we should just make the **inputs** input optional
+and do the automatic processing only when no inputs are passed, for backwards compatibility.
