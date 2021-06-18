@@ -7,17 +7,10 @@
 # divulged or used for any purpose by other organizations or individuals without a
 # formal written and signed agreement with neonFORGE, LLC.
 
-#------------------------------------------------------------------------------
-# Clears the runner state including:
-#
-#   * clearing the GITHUB_WORKSPACE directory
-#   * clearing the TMP directory
-#   * stopping any removing any Hype-V VMs
-#
 # NOTE: You must run the [setup-node] action before this to ensure that
 #       Node.js is configured on the runner.
 
-name: clean
+name: inputs
 description: "Logs workflow inputs"
 inputs:
   default:
