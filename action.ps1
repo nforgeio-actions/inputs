@@ -43,7 +43,7 @@ try
     }
     else
     {
-        $inputs = Get-Content $eventPath | Convert-FromJson
+        $inputs = Get-Content $eventPath | ConvertFrom-Json
 
         if ($inputs.Count -eq 0)
         {
