@@ -13,7 +13,7 @@
 name: inputs
 description: "Logs workflow inputs"
 inputs:
-  default:
+  inputs:
     description: "Workflow inputs (typically formatted as YAML)"
     required: true
 runs:
