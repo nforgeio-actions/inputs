@@ -49,7 +49,7 @@ jobs:
 
     - uses: nforgeio-inputs@master
       with:
-        args: |
+        inputs: |
           input1: ${{ github.event.inputs.input1 }}
           input2: ${{ github.event.inputs.input2 }}
 ```
@@ -60,5 +60,5 @@ Notice how we use the YAML "|" operator to pass a multi-line YAML formatted stri
 **GITHUB_EVENT_PATH** environment variable to read and format the inputs automatically but this
 implementation should suffice for now.
 
-If we end up supporting **GITHUB_EVENT_PATH**, we should just make the **args** input optional
+If we end up supporting **GITHUB_EVENT_PATH**, we should just make the **inputs** input optional
 and do the automatic processing only when no inputs are passed, for backwards compatibility.

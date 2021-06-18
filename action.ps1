@@ -32,14 +32,14 @@ Pop-Location | Out-Null
 
 # Fetch the inputs
 
-$args = Get-ActionInput "args" $true
+$inputs = Get-ActionInput "inputs" $true
 
 try
 {
     Write-Output "GITHUB_EVENT_PATH: $env:GITHUB_EVENT_PATH""
 
     Open-ActionOutputGroup "inputs"
-    Write-ActionOutput $args
+    Write-ActionOutput $inputs
     Close-ActionOutputGroup
 }
 catch
