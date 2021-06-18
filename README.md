@@ -1,0 +1,2 @@
+# inputs
+Logs workflow inputs
