@@ -54,7 +54,7 @@ try
         }
         else
         {
-            ForEach ($key in $inputs.Keys)
+            foreach ($key in $inputs.Keys)
             {
                 $value = $inputs[$key]
                 Write-ActionOutput "${key}: $value"
